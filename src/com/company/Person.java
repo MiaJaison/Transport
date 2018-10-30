@@ -1,9 +1,23 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Person {
-    String name;
-    int age;
-    Gender gender;
+    public static final int LEGAL_AGE = 18;
+    private static final int MIN_AGE = 0;
+    private static final int MAX_AGE = 150;
+
+    private String name;
+    private int age;
+    private Gender gender;
+
+    public Person(String name, int age, Gender gender) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+    }
 
     public String getName() {
         return name;
@@ -36,5 +50,22 @@ public class Person {
                 ", age=" + age +
                 ", gender=" + gender +
                 '}';
+    }
+
+    public static List<Person> filterPersonsByGenderAndAge(List<Person> personList, Gender gender, int age) {
+        return personList.stream()
+                .filter(person -> person.gender == gender && person.age >= age)
+                .collect(Collectors.toList());
+    }
+
+    public static List<Person> filterPersonsByGenderAndAgeOldStyle(List<Person> personList, Gender gender, int age) {
+        // old implementation would be
+        List<Person> filteredPersonList = new ArrayList<>();
+        for (Person person : personList) {
+            if (person.gender == gender && person.age >= age) {
+                filteredPersonList.add(person);
+            }
+        }
+        return filteredPersonList;
     }
 }
