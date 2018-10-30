@@ -58,6 +58,12 @@ public class Person {
                 .collect(Collectors.toList());
     }
 
+    public static List<Person> filterPersonsByAge(List<Person> personList, int age) {
+        return personList.stream()
+                .filter(person -> person.age >= age)
+                .collect(Collectors.toList());
+    }
+
     public static List<Person> filterPersonsByGenderAndAgeOldStyle(List<Person> personList, Gender gender, int age) {
         // old implementation would be
         List<Person> filteredPersonList = new ArrayList<>();

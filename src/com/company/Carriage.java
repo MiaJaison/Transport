@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.List;
 
-public class Carriage {
+public class Carriage{
     private int number;
     private int numberOfSeats;
     private List<Person> passengers;

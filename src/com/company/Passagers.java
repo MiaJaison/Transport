@@ -1,40 +1,27 @@
 package com.company;
 
-public class Passagers {
-    String name;
-    int age;
-    Gender gender;
+import java.util.List;
 
-    public String getName() {
-        return name;
+public class Passagers extends Person{
+    Luggage luggage;
+
+    public Passagers(String name, int age, Gender gender, Luggage luggage) {
+        super(name, age, gender);
+        this.luggage = luggage;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Luggage getLuggage() {
+        return luggage;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public Gender getGender() {
-        return gender;
-    }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
+    public void setLuggage(Luggage luggage) {
+        this.luggage = luggage;
     }
 
     @Override
     public String toString() {
         return "Passagers{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", gender=" + gender +
+                "luggage=" + luggage +
                 '}';
     }
 }
